@@ -1,7 +1,7 @@
-package com.breadhard.hexagonalspringexample.infraestructure.api.mapper;
+package com.breadhard.hexagonalspringexample.infraestructure.rest.mapper;
 
 import com.breadhard.hexagonalspringexample.domain.model.Customer;
-import com.breadhard.hexagonalspringexample.infraestructure.api.dto.CustomerDTO;
+import com.breadhard.hexagonalspringexample.infraestructure.rest.dto.CustomerDTO;
 import org.mapstruct.Mapper;
 
 import java.util.List;

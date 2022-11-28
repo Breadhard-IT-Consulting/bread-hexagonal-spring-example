@@ -1,4 +1,4 @@
-package com.breadhard.hexagonalspringexample.infraestructure.api.dto;
+package com.breadhard.hexagonalspringexample.infraestructure.rest.dto;
 
 import com.breadhard.hexagonalspringexample.domain.model.Customer;
 import lombok.Builder;
