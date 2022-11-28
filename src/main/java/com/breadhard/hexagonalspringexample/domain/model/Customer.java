@@ -1,13 +1,12 @@
 package com.breadhard.hexagonalspringexample.domain.model;
 
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
+import lombok.experimental.SuperBuilder;
 
 import java.time.LocalDate;
-@Builder
-@Getter
-@Setter
+
+@SuperBuilder
+@Data
 public class Customer {
     String id;
     String name;
