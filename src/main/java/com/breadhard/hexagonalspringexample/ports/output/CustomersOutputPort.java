@@ -2,9 +2,9 @@ package com.breadhard.hexagonalspringexample.ports.output;
 
 import java.util.List;
 
-public interface CustomersOutputPort<K,T,R> {
+public interface CustomersOutputPort<K,R> {
     K getCustomerById(R customerId);
-    R saveCustomer(K customer);
-    List<K> findCustomerByName(R name);
-    void updateCustomer(K customer);
+    R insertCustomer(K customer);
+    List<K> getCustomersByName(R name);
+    void patchCustomer(K customer);
 }

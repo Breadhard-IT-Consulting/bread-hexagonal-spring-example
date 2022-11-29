@@ -1,38 +1,35 @@
 package com.breadhard.hexagonalspringexample;
 
 import lombok.extern.slf4j.Slf4j;
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
+import org.junit.ClassRule;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.autoconfigure.mongo.embedded.EmbeddedMongoAutoConfiguration;
-import org.springframework.boot.test.autoconfigure.data.mongo.DataMongoTest;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.testcontainers.containers.GenericContainer;
+import org.testcontainers.containers.DockerComposeContainer;
 import org.testcontainers.containers.MongoDBContainer;
-import org.testcontainers.utility.DockerImageName;
+
+import java.io.File;
 
 @SpringBootTest
 @Slf4j
 class HexagonalSpringExampleApplicationTests {
 	static MongoDBContainer MONGO_DB_CONTAINER;
+	public static DockerComposeContainer TEST_CONTAINERS_SERVICE;
+			;
 	@BeforeAll
 	static void beforeClass() throws Exception {
 		log.info("Start containers");
-		MONGO_DB_CONTAINER = new MongoDBContainer(DockerImageName.parse("mongo:latest"))
-/*				.withEnv("MONGO_INITDB_DATABASE", "mytestdb")
-				.withEnv("MONGO_INITDB_ROOT_USERNAME", "anyuser")
-				.withEnv("MONGO_INITDB_ROOT_PASSWORD", "whatever")*/
-				.withExposedPorts(27017);
-		MONGO_DB_CONTAINER.start();
+		TEST_CONTAINERS_SERVICE = new DockerComposeContainer(
+				new File("src/test/resources/docker-compose-mongodb.yaml"));
+		TEST_CONTAINERS_SERVICE.start();
 		log.info("Containers started");
 
 	}
 	@AfterAll
 	static void afterClass() throws Exception {
 		log.info("Stop containers");
-		MONGO_DB_CONTAINER.stop();
+		TEST_CONTAINERS_SERVICE.stop();
 		log.info("Containers stopped");
 	}
 	@Test

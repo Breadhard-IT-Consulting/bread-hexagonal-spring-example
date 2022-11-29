@@ -1,0 +1,1 @@
+hostname -I | cut -f 1 -d ' '
