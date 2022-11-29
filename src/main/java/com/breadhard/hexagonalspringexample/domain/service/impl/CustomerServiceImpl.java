@@ -2,13 +2,10 @@ package com.breadhard.hexagonalspringexample.domain.service.impl;
 
 import com.breadhard.hexagonalspringexample.domain.model.Customer;
 import com.breadhard.hexagonalspringexample.domain.service.CustomerService;
-import com.breadhard.hexagonalspringexample.ports.output.CustomersOutputPort;
+import com.breadhard.hexagonalspringexample.ports.output.CustomersServiceOutputPort;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.experimental.SuperBuilder;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -17,10 +14,12 @@ import java.util.List;
 @Slf4j
 @Service
 public class CustomerServiceImpl implements CustomerService {
-    private CustomersOutputPort customersOutputPort;
+    private CustomersServiceOutputPort customersServiceOutputPort;
     @Override
     public String createNewCustomer(Customer customer) {
-        return null;
+        // Preguntar si existe, si es válido, etc. lógica de negocio
+        customersServiceOutputPort.insertCustomer(customer);
+        return customer.getId();
     }
 
     @Override

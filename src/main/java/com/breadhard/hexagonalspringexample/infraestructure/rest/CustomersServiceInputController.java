@@ -5,7 +5,7 @@ import com.breadhard.hexagonalspringexample.domain.service.CustomerService;
 import com.breadhard.hexagonalspringexample.infraestructure.rest.dto.CustomerDTO;
 import com.breadhard.hexagonalspringexample.infraestructure.rest.dto.CustomerIdDTO;
 import com.breadhard.hexagonalspringexample.infraestructure.rest.mapper.CustomersToDomainMapper;
-import com.breadhard.hexagonalspringexample.ports.input.CustomersInputPort;
+import com.breadhard.hexagonalspringexample.ports.input.CustomersServiceInputPort;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +19,7 @@ import java.util.List;
 @RequestMapping("customers")
 @Slf4j
 @AllArgsConstructor
-public class CustomersInputController implements CustomersInputPort<ResponseEntity,CustomerDTO,String> {
+public class CustomersServiceInputController implements CustomersServiceInputPort<ResponseEntity,CustomerDTO,String> {
     @Autowired
     private CustomerService customerService;
     @Autowired

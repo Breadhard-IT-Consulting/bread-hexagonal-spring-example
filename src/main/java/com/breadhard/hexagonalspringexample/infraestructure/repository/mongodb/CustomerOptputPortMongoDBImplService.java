@@ -2,7 +2,7 @@ package com.breadhard.hexagonalspringexample.infraestructure.repository.mongodb;
 
 import com.breadhard.hexagonalspringexample.domain.model.Customer;
 import com.breadhard.hexagonalspringexample.infraestructure.repository.mongodb.mapper.CustomerToMongoDBEntityMapper;
-import com.breadhard.hexagonalspringexample.ports.output.CustomersOutputPort;
+import com.breadhard.hexagonalspringexample.ports.output.CustomersServiceOutputPort;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +14,7 @@ import java.util.Optional;
 @Data
 @AllArgsConstructor
 @Repository
-public class CustomerOptputPortMongoDBImpl implements CustomersOutputPort<Optional<Customer>,String> {
+public class CustomerOptputPortMongoDBImplService implements CustomersServiceOutputPort<Optional<Customer>,String> {
     CustomerToMongoDBEntityMapper customerToMongoDBEntityMapper;
     @Autowired
     CustomerMongoDBRepository customerMongoDBRepository;
